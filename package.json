@@ -1,7 +1,7 @@
 {
   "name": "goit-js-hw-08",
   "version": "1.0.0",
-  "description": "",
+  "description": "Web storage",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
