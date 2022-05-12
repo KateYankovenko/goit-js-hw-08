@@ -4,14 +4,15 @@ import throttle from 'lodash.throttle';
 const iframe = document.querySelector("#vimeo-player");
 // iframe.addEventListener("timeupdate", onPlay);
 
-
-iframe.addEventListener(
-  "timeupdate",
-  _.debounce(() => {
-    console.log("");
-  }, 1000)
-);
-// const onPlay = function(event) {
+const onPlay = function(event) {
     
-// };
-// player.on('play', onPlay);
+};
+// iframe.on('play', onPlay);
+
+// iframe.addEventListener(
+//   "timeupdate",
+//   _.debounce(() => {
+//     console.log("Timeupdate handler call after 1000ms pause");
+//   }, 1000)
+// );
+
