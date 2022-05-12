@@ -2,7 +2,7 @@ import Player from '@vimeo/player';
 import throttle from 'lodash.throttle';
 
 const iframe = document.querySelector("#vimeo-player");
-const LOCAL_STORAGE = "videoplayer-current-time";
+const STORAGE_KEY = "videoplayer-current-time";
 iframe.addEventListener("timeupdate", onPlay);
 
 const onPlay = function(event) {
@@ -11,7 +11,7 @@ const onPlay = function(event) {
 
 
 
-player.setCurrentTime(30.456).then(function(seconds) {
+player.setCurrentTime(STORAGE_KEY).then(function(seconds) {
     // seconds = the actual time that the player seeked to
 }).catch(function(error) {
     switch (error.name) {
