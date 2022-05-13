@@ -16,9 +16,9 @@ function onSaveTime (){
 
 
 function onReloadTime() {
-    const currentTime = localStorage.setItem(LOCALSTORAGE_KEY);
-    
-      player.setCurrentTime(currentTime).then(function(seconds) {
+    const lastPlayedTime = localStorage.setItem(LOCALSTORAGE_KEY);
+
+      player.setCurrentTime(lastPlayedTime).then(function(seconds) {
          localStorage.setItem(LOCALSTORAGE_KEY, seconds);
     }).catch(function(error) {
         switch (error.name) {
