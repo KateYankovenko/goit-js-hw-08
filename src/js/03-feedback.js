@@ -43,7 +43,7 @@ function onFormSubmit(e) {
         localStorage.removeItem(LOCALSTORAGE_KEY);    
     }
     
-   
+    form.reset();
 }
 
 
