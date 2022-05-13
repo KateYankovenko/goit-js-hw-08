@@ -6,11 +6,11 @@ const LOCALSTORAGE_KEY = "feedback-form-state";
 form.addEventListener("input", onInput);
 
 const onInput = () => {
-    LOCALSTORAGE_KEY => userData({
+    LOCALSTORAGE_KEY => LOCALSTORAGE_KEY.userData({
         email: form.elements.email.value,
         message: form.elements.message.value,})
 }
-
+console.log(onInput());
 
 
 
