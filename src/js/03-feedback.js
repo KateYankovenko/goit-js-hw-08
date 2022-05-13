@@ -6,7 +6,7 @@ const LOCALSTORAGE_KEY = "feedback-form-state";
 form.addEventListener("input", throttle(onUserDataInp, 500));
 form.addEventListener("submit", onFormSubmit);
 
-// every time u reloading this page, all forms are cleared
+// every time u reloading this page
 onFormReload();
 
 //object of user data
@@ -40,7 +40,8 @@ function onFormSubmit(e) {
     if (elValue&&msgValue) {
         localStorage.clear();
         console.log(onInputObj());
-        localStorage.removeItem(LOCALSTORAGE_KEY);    
+        // localStorage.removeItem(LOCALSTORAGE_KEY);  
+        localStorage.clear();
     }
     
     form.reset();
