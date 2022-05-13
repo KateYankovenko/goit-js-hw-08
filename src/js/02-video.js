@@ -5,18 +5,20 @@ const iframe = document.querySelector('iframe');
 // Сховище з рядком-ключем
 const LOCALSTORAGE_KEY = "videoplayer-current-time";
 const player = new Player(iframe);
-player.on('timeupdate', onSaveTime);
+player.on("timeupdate", onSaveTime);
 player.on("loaded", throttle(onReloadTime, 1000));
 
 function onSaveTime (){
-     player.getCurrentTime().then(function(time) {
-    localStorage.setItem(LOCALSTORAGE_KEY, time);
+     player.getCurrentTime().then(function(seconds) {
+    localStorage.setItem(LOCALSTORAGE_KEY, seconds);
     })
 }
 
 
 function onReloadTime() {
-      player.setCurrentTime(LOCALSTORAGE_KEY).then(function(seconds) {
+    const currentTime = localStorage.setItem(LOCALSTORAGE_KEY);
+    
+      player.setCurrentTime(currentTime).then(function(seconds) {
          localStorage.setItem(LOCALSTORAGE_KEY, seconds);
     }).catch(function(error) {
         switch (error.name) {
