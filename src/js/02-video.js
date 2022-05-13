@@ -3,7 +3,11 @@ import throttle from 'lodash.throttle';
 
 const iframe = document.querySelector("#vimeo-player");
 // Сховище з рядком-ключем
-const STORAGE_KEY = "videoplayer-current-time";
+const LOCALSTORAGE_KEY = "videoplayer-current-time";
+const player = new Player(iframe);
+player.on('timeupdate', onPlay);
+
+
 iframe.addEventListener("timeupdate", onPlay);
 
 const onPlay = function(event) {
@@ -12,7 +16,7 @@ const onPlay = function(event) {
 
 
 
-    player.setCurrentTime(STORAGE_KEY).then(function(seconds) {
+    player.setCurrentTime(LOCALSTORAGE_KEY).then(function(seconds) {
         // seconds = the actual time that the player seeked to
     }).catch(function(error) {
         switch (error.name) {
@@ -27,7 +31,7 @@ const onPlay = function(event) {
     });
 
 
-// iframe.on('play', onPlay);
+
 
 // iframe.addEventListener(
 //   "timeupdate",
