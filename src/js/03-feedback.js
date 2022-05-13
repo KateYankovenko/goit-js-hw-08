@@ -35,8 +35,8 @@ function onFormSubmit() {
 // clearing form and cosoling while submitting
 function onPageLoading (e) {
     e.preventDefault();
+    e.currentTarget.reset();
     localStorage.clear();
-    form.reset();
     console.log(onInputObj);
 }
 
