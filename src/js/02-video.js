@@ -5,10 +5,10 @@ const iframe = document.querySelector('iframe');
 // Сховище з рядком-ключем
 const LOCALSTORAGE_KEY = "videoplayer-current-time";
 const player = new Player(iframe);
-player.on("timeupdate", onSaveTime);
+player.on("timeupdate", onPlay);
 player.on("loaded", throttle(onReloadTime, 1000));
 
-function onSaveTime (){
+function onPlay (){
      player.getCurrentTime().then(function(seconds) {
     localStorage.setItem(LOCALSTORAGE_KEY, seconds);
     })
@@ -19,7 +19,8 @@ function onReloadTime() {
     const lastPlayedTime = localStorage.setItem(LOCALSTORAGE_KEY);
 
       player.setCurrentTime(lastPlayedTime).then(function(seconds) {
-         localStorage.setItem(LOCALSTORAGE_KEY, seconds);
+          
+          console.log(seconds);
     }).catch(function(error) {
         switch (error.name) {
             case 'RangeError':
