@@ -26,7 +26,7 @@ const onUserDataInp = function () {
 
 //checking and writing saved user data
 const pageLoading = function () {
-    if (localStorage.getItem(LOCALSTORAGE_KEY) {
+    if (localStorage.getItem(LOCALSTORAGE_KEY)) {
         const fillUserInputs = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
         form.elements.email.value = fillUserInputs.email;
         form.elements.message.value = fillUserInputs.message;
