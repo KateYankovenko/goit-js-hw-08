@@ -1,14 +1,12 @@
 import throttle from 'lodash.throttle';
 
-const refs = {
- form: document.querySelector(".feedback-form"),
- emailInput: document.querySelector("input[name=email]"),
- messageInput: document.querySelector("input[name=message]"),
-}
+const form = document.querySelector(".feedback-form");
+const LOCALSTORAGE_KEY = "feedback-form-state";
 
 
 
-// const LOCALSTORAGE_KEY = ""feedback-form-state"";
+
+
 
 
 // 1.Відстежуй на формі подію input, і щоразу записуй у 
