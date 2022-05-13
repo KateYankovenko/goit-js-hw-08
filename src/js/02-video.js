@@ -16,7 +16,7 @@ function onPlay (){
 
 
 function onReloadTime() {
-    const lastPlayedTime = localStorage.setItem(LOCALSTORAGE_KEY);
+    const lastPlayedTime = localStorage.getItem(LOCALSTORAGE_KEY);
 
       player.setCurrentTime(lastPlayedTime).then(function(seconds) {
           
