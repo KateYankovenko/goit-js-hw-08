@@ -1,22 +1,20 @@
 import Player from '@vimeo/player';
 import throttle from 'lodash.throttle';
 
-const iframe = document.querySelector("#vimeo-player");
+const iframe = document.querySelector('iframe');
 // Сховище з рядком-ключем
 const LOCALSTORAGE_KEY = "videoplayer-current-time";
 const player = new Player(iframe);
-player.on('timeupdate', onPlay);
+player.on('timeupdate', reloadTime);
+player.on("loaded", );
+
+player.on('timeupdate', function() {
+    player.getCurrentTime().then(time => LOCALSTORAGE_KEY)
+},1000);
 
 
-iframe.addEventListener("timeupdate", onPlay);
-
-const onPlay = function(event) {
-    console.log("Go");
-};
-
-
-
-    player.setCurrentTime(LOCALSTORAGE_KEY).then(function(seconds) {
+function reloadTime() {
+      player.setCurrentTime(LOCALSTORAGE_KEY).then(function(seconds) {
         // seconds = the actual time that the player seeked to
     }).catch(function(error) {
         switch (error.name) {
@@ -28,7 +26,9 @@ const onPlay = function(event) {
                  console.log("some other error occurred");
                 break;
         }
-    });
+    });  
+}
+
 
 
 
