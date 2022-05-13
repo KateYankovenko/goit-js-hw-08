@@ -6,7 +6,7 @@ const messageInput = document.querySelector("input[name=message]");
 console.log(emailInput);
 console.log(messageInput);
 
-// const LOCALSTORAGE_KEY = "";
+// const LOCALSTORAGE_KEY = ""feedback-form-state"";
 
 
 // 1.Відстежуй на формі подію input, і щоразу записуй у 
