@@ -7,6 +7,9 @@ const LOCALSTORAGE_KEY = "feedback-form-state";
 form.addEventListener("input", throttle(onUserDataInp, 500));
 form.addEventListener("submit", onFormSubmit);
 
+// every time u reloading this page, all forms are cleared
+onFormSubmit();
+
 //object of user data
 const onInputObj = function () {
     return ({
@@ -31,8 +34,11 @@ const pageLoading = function () {
 }
 
 // clearing form and cosoling while submitting
-const onFormSubmit = function () {
-    
+const onFormSubmit = function (e) {
+    e.preventDefault();
+    localStorage.clear();
+    form.reset();
+    console.log(onInputObj);
 }
 
 
