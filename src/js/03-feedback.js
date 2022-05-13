@@ -4,22 +4,23 @@ import throttle from 'lodash.throttle';
 const form = document.querySelector(".feedback-form");
 const LOCALSTORAGE_KEY = "feedback-form-state";
 
-form.addEventListener("input", throttle(onUserDataInp, 500);
+form.addEventListener("input", throttle(onUserDataInp, 500));
 
 //object of user data
-const onInputObj = function(){
-    return({
+const onInputObj = function () {
+    return ({
         email: form.elements.email.value,
-        message: form.elements.message.value,})
-}
+        message: form.elements.message.value,
+    })
+};
 
-const onUserDataInp = function(){
+const onUserDataInp = function () {
     const filledDataFields = onInputObj();
     localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(filledDataFields));
-}
+};
 
 
-localStorage(clear);
+
 
 
 // 1.Відстежуй на формі подію input, і щоразу записуй у 
