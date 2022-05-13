@@ -7,10 +7,10 @@ form.addEventListener("input", throttle(onUserDataInp, 500));
 form.addEventListener("submit", onFormSubmit);
 
 // every time u reloading this page, all forms are cleared
-onPageLoading();
+onFormSubmit();
 
 //object of user data
-const onInputObj = function () {
+const onInputObj = function() {
     return ({
         email: form.elements.email.value,
         message: form.elements.message.value,
@@ -18,27 +18,29 @@ const onInputObj = function () {
 };
 
 //data obj. to local storage
-const onUserDataInp = function () {
+function onUserDataInp() {
     const filledDataFields = onInputObj();
     localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(filledDataFields));
 };
 
 //checking and writing saved user data
-const onFormSubmit = function () {
+function onFormSubmit(e) {
+    e.preventDefault();
     if (localStorage.getItem(LOCALSTORAGE_KEY)) {
         const fillUserInputs = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
         form.elements.email.value = fillUserInputs.email;
         form.elements.message.value = fillUserInputs.message;
+        localStorage.clear();
+    form.reset();
+    console.log(onInputObj);
     }
 }
 
 // clearing form and cosoling while submitting
-const onPageLoading = function (e) {
-    e.preventDefault();
-    localStorage.clear();
-    form.reset();
-    console.log(onInputObj);
-}
+// function onPageLoading (e) {
+    
+    
+// }
 
 
 
