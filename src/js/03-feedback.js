@@ -20,6 +20,7 @@ const onUserDataInp = function () {
     localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(filledDataFields));
 };
 
+//checking and writing saved user data
 const pageLoading = function () {
     if (localStorage.getItem(LOCALSTORAGE_KEY) {
         const fillUserInputs = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
