@@ -1,4 +1,3 @@
-import { clear } from 'console';
 import throttle from 'lodash.throttle';
 
 const form = document.querySelector(".feedback-form");
@@ -8,7 +7,7 @@ form.addEventListener("input", throttle(onUserDataInp, 500));
 form.addEventListener("submit", onFormSubmit);
 
 // every time u reloading this page, all forms are cleared
-onFormSubmit();
+onPageLoading();
 
 //object of user data
 const onInputObj = function () {
@@ -25,7 +24,7 @@ const onUserDataInp = function () {
 };
 
 //checking and writing saved user data
-const pageLoading = function () {
+const onFormSubmit = function () {
     if (localStorage.getItem(LOCALSTORAGE_KEY)) {
         const fillUserInputs = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
         form.elements.email.value = fillUserInputs.email;
@@ -34,7 +33,7 @@ const pageLoading = function () {
 }
 
 // clearing form and cosoling while submitting
-const onFormSubmit = function (e) {
+const onPageLoading = function (e) {
     e.preventDefault();
     localStorage.clear();
     form.reset();
