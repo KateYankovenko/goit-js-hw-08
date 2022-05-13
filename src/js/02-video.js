@@ -9,9 +9,9 @@ player.on('timeupdate', onSaveTime);
 player.on("loaded", throttle(onReloadTime, 1000));
 
 function onSaveTime (){
-    player.on('timeupdate', function () {
-        player.getCurrentTime().then(time => LOCALSTORAGE_KEY)
-    },1000);
+     player.getCurrentTime().then(function(time) {
+    localStorage.setItem(LOCALSTORAGE_KEY, time);
+    })
 }
 
 
