@@ -15,7 +15,7 @@ player.on('timeupdate', function() {
 
 function reloadTime() {
       player.setCurrentTime(LOCALSTORAGE_KEY).then(function(seconds) {
-        // seconds = the actual time that the player seeked to
+         localStorage.setItem(LOCALSTORAGE_KEY, seconds);
     }).catch(function(error) {
         switch (error.name) {
             case 'RangeError':
