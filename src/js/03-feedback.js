@@ -14,11 +14,19 @@ const onInputObj = function () {
     })
 };
 
+//data obj. to local storage
 const onUserDataInp = function () {
     const filledDataFields = onInputObj();
     localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(filledDataFields));
 };
 
+const pageLoading = function () {
+    if (localStorage.getItem(LOCALSTORAGE_KEY) {
+        const fillUserInputs = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
+        form.elements.email.value = fillUserInputs.email;
+        form.elements.message.value = fillUserInputs.message;
+    }
+}
 
 
 
