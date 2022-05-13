@@ -1,3 +1,4 @@
+import { clear } from 'console';
 import throttle from 'lodash.throttle';
 
 const form = document.querySelector(".feedback-form");
@@ -12,12 +13,13 @@ const onInputObj = function(){
         message: form.elements.message.value,})
 }
 
-const onUserDataInp() {
-
+const onUserDataInp = function(){
+    const filledDataFields = onInputObj();
+    localStorage.setItem(LOCALSTORAGE_KEY);
 }
 
 
-
+localStorage(clear);
 
 
 // 1.Відстежуй на формі подію input, і щоразу записуй у 
