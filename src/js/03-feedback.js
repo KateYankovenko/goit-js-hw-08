@@ -5,6 +5,7 @@ const form = document.querySelector(".feedback-form");
 const LOCALSTORAGE_KEY = "feedback-form-state";
 
 form.addEventListener("input", throttle(onUserDataInp, 500));
+form.addEventListener("submit", onFormSubmit);
 
 //object of user data
 const onInputObj = function () {
@@ -29,6 +30,10 @@ const pageLoading = function () {
     }
 }
 
+// clearing form and cosoling while submitting
+const onFormSubmit = function () {
+    
+}
 
 
 
