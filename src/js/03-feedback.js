@@ -20,13 +20,14 @@ function onInputObj() {
 //data obj. to local storage
 function onUserDataInp() {
     const filledDataFields = onInputObj();
-    localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(filledDataFields));
+    localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(filledDataFields));//here we will store in localStorage data, but it can store only stringed data
 };
 
 //page reloading and checking
 function onFormReload() {
-    if (localStorage.getItem(LOCALSTORAGE_KEY)) {
-        const fillUserInputs = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
+    const savedData = localStorage.getItem(LOCALSTORAGE_KEY);
+    if (savedData) {
+        const fillUserInputs = JSON.parse(savedData);
         form.elements.email.value = fillUserInputs.email;
         form.elements.message.value = fillUserInputs.message;
     }
@@ -37,13 +38,13 @@ function onFormSubmit(e) {
     e.preventDefault();
     const elValue = form.elements.email.value;
     const msgValue = form.elements.message.value;
-    if (elValue&&msgValue) {
-        localStorage.clear();
-        console.log(onInputObj());
-        // localStorage.removeItem(LOCALSTORAGE_KEY);  
-        localStorage.clear();
-    }
-    
+    if (!elValue || !msgValue) {
+        alert('You should fill in all the fields!');
+    return;
+    } 
+    // e.currentTarget.reset();
+    console.log(onInputObj());
+    localStorage.removeItem(LOCALSTORAGE_KEY);
     form.reset();
 }
 
